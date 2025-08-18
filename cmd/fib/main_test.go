@@ -25,7 +25,6 @@ func TestValidQueryParams(t *testing.T) {
 		{fibonacci.MAX_32_BIT_N + 1, "false", ErrTooLarge},
 		{fibonacci.MAX_64_BIT_N + 1, "false", ErrTooLarge},
 		{fibonacci.MAX_64_BIT_N + 1, "true", nil},
-		{fibonacci.MAX_64_BIT_N + 10, "false", nil},
 	}
 
 	for _, tt := range tests {
