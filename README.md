@@ -44,10 +44,10 @@ Make audit will run all test types.
 ```bash
 make deploy
 ```
-Make deploy wil build and run the binary.
+Make deploy will build and run the binary.
 
 ## Build and Run in Docker Container
 ```bash
 make docker
 ```
-Make docker wil build and run a docker container.
+Make docker will build and run a docker container.
