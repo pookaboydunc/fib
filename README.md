@@ -2,7 +2,7 @@
 
 A simple web service that returns the first `n` Fibonacci numbers.
 
-The service has one endpoint `/fibonacci` and always expects at least the `n` query param. This specifies how many fibonacci numbers you would like to generate. There is a second query param `big` that should be set to `true` if you are going to be requesting large sequences. The definition of large is `>46` in 32 bit environments and `>92` in 64 bit environments.
+The service has one endpoint `/fibonacci` and always expects the `n` query param. This specifies how many fibonacci numbers you would like to generate.
 
 ## Prerequisites
 Go >= 1.24.4

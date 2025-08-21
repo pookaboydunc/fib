@@ -18,7 +18,6 @@ var (
 	ErrMissingQueryParam = errors.New("missing query parameter 'n'")
 	ErrInvalidNumber     = errors.New("invalid number")
 	ErrNonNegativeNumber = errors.New("n must be non-negative")
-	ErrTooLarge          = errors.New("n too large")
 )
 
 // Config represents the application configuration
@@ -42,12 +41,9 @@ func validQueryParams(r *http.Request) (int, error) {
 		return 0, ErrInvalidNumber
 	}
 
-	// if 'n' is larger than the safe limit check if the 'big' query param is set
-	if limit := fibonacci.SafeLimit(); n > limit {
-		big := r.URL.Query().Get("big")
-		if big != "true" {
-			return n, fmt.Errorf("%s; max supported is %d in 64 bit environments and %d in 32 bit environments", ErrTooLarge.Error(), fibonacci.MAX_64_BIT_N, fibonacci.MAX_32_BIT_N)
-		}
+	// if 'n' is negative return error
+	if n < 0 {
+		return 0, ErrNonNegativeNumber
 	}
 	return n, nil
 }
